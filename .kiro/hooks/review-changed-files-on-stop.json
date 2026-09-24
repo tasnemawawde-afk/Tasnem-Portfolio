@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Review Changed Files on Stop",
+      "trigger": "Stop",
+      "description": "After an agent execution completes, reviews the files that were just modified for TypeScript errors and accessibility issues, and reports problems without automatically changing unrelated files.",
+      "action": {
+        "type": "agent",
+        "prompt": "A code-modifying agent execution just finished. Perform a focused review of ONLY the files that were changed in this session.\n\nScope rules (strict):\n- Determine the set of changed files first. Prefer `git diff --name-only HEAD` and `git status --porcelain` to identify them. Review only those files.\n- Do NOT edit, format, or \"fix\" any files as part of this review. Do NOT modify unrelated files. This is a read-and-report task only.\n\nChecks to perform on each changed file:\n1. TypeScript errors — run `npx tsc --noEmit` and attribute any reported errors that originate in the changed files. Also run `npm run lint` and report type/lint issues tied to the changed files.\n2. Accessibility issues in changed .tsx components, per this project's standards:\n   - Every section is clearly labelled (headings / aria-labels / landmarks).\n   - Interactive elements are keyboard accessible and have accessible names.\n   - Images use `next/image` with meaningful `alt` text.\n   - Colour contrast and focus states are adequate.\n   - Semantic HTML is used over generic divs where appropriate.\n\nReporting:\n- Produce a concise report grouped by file, then by category (TypeScript, Accessibility).\n- For each problem, give the file, line (if known), a short description, and a suggested fix — but do NOT apply the fix.\n- If no problems are found in a category, say so explicitly.\n- If there were no changed files to review, state that and stop."
+      }
+    }
+  ]
+}

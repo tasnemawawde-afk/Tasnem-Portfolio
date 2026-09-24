@@ -1,0 +1,200 @@
+/* ==========================================================================
+   Design Tokens — CSS Custom Properties
+   ========================================================================== */
+
+:root {
+  /* --------------------------------------------------------------------------
+     Colour Palette
+     -------------------------------------------------------------------------- */
+
+  /* Neutrals */
+  --color-background:     #0f1117; /* deep navy-black */
+  --color-surface:        #1a1d2e; /* card / section background */
+  --color-surface-raised: #222640; /* elevated card */
+  --color-border:         #2e3354;
+
+  /* Text */
+  --color-text-primary:   #e8eaf6; /* high-contrast body text */
+  --color-text-secondary: #9fa8da; /* subdued labels */
+  --color-text-muted:     #6272a4; /* timestamps, metadata */
+
+  /* Accent */
+  --color-accent:       #7986cb; /* indigo — links, active states */
+  --color-accent-hover: #9fa8da;
+  --color-accent-fg:    #0f1117; /* text on accent backgrounds */
+
+  /* Semantic */
+  --color-error:   #ef5350;
+  --color-success: #66bb6a;
+
+  /* --------------------------------------------------------------------------
+     Typography
+     -------------------------------------------------------------------------- */
+
+  --font-family-base: system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* Scale (rem) */
+  --font-size-xs:   0.75rem;   /*  12px */
+  --font-size-sm:   0.875rem;  /*  14px */
+  --font-size-base: 1rem;      /*  16px */
+  --font-size-lg:   1.125rem;  /*  18px */
+  --font-size-xl:   1.25rem;   /*  20px */
+  --font-size-2xl:  1.5rem;    /*  24px */
+  --font-size-3xl:  1.875rem;  /*  30px */
+  --font-size-4xl:  2.25rem;   /*  36px */
+  --font-size-5xl:  3rem;      /*  48px */
+
+  /* Weight */
+  --font-weight-normal:   400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+
+  /* Line height */
+  --line-height-tight:   1.2;
+  --line-height-snug:    1.4;
+  --line-height-normal:  1.6;
+  --line-height-relaxed: 1.75;
+
+  /* --------------------------------------------------------------------------
+     Spacing
+     -------------------------------------------------------------------------- */
+
+  --space-1:  0.25rem;  /*  4px */
+  --space-2:  0.5rem;   /*  8px */
+  --space-3:  0.75rem;  /* 12px */
+  --space-4:  1rem;     /* 16px */
+  --space-5:  1.25rem;  /* 20px */
+  --space-6:  1.5rem;   /* 24px */
+  --space-8:  2rem;     /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+
+  --section-padding-y:   var(--space-20);
+  --section-padding-x:   var(--space-6);
+  --container-max-width: 1100px;
+  --navbar-height:       4rem; /* 64px */
+
+  /* --------------------------------------------------------------------------
+     Border Radius
+     -------------------------------------------------------------------------- */
+
+  --radius-sm:   0.25rem;
+  --radius-md:   0.5rem;
+  --radius-lg:   1rem;
+  --radius-full: 9999px;
+
+  /* --------------------------------------------------------------------------
+     Transitions
+     -------------------------------------------------------------------------- */
+
+  --transition-fast:   150ms ease;
+  --transition-normal: 250ms ease;
+
+  /* --------------------------------------------------------------------------
+     Shadows
+     -------------------------------------------------------------------------- */
+
+  --shadow-card:   0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-raised: 0 4px 16px rgba(0, 0, 0, 0.6);
+
+  /* --------------------------------------------------------------------------
+     Accessibility
+     -------------------------------------------------------------------------- */
+
+  /* Minimum touch target size per WCAG 2.5.5 */
+  --min-touch-target: 44px;
+
+  /* Section heading accent */
+  --heading-accent-width: 3rem;
+  --heading-accent-height: 3px;
+
+  /* Elevated surface hover */
+  --color-surface-hover: #282c44;
+
+  /* Gradient for hero background */
+  --hero-gradient: linear-gradient(135deg, #0f1117 0%, #141829 60%, #1a1d2e 100%);
+
+  /* Section alternation helpers (same as existing surface/background) */
+  --color-section-alt: var(--color-surface);
+
+  /* Footer */
+  --footer-border: var(--color-border);
+}
+
+/* ==========================================================================
+   CSS Reset & Base Rules
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* Prevent horizontal overflow at all viewport widths */
+  overflow-x: hidden;
+  /* Use the system colour scheme; keeps browser UI consistent */
+  color-scheme: dark;
+  /* Smooth scrolling for anchor navigation */
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  /* Allow footer to stay at bottom on short pages */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive images — never exceed their container */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Remove default list styling; components add their own */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Inherit font from body by default */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Links: unstyled by default; components override as needed */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   Section Scroll Offset
+   Ensures anchored sections clear the sticky navbar when jumped to via links.
+   ========================================================================== */
+
+section[id] {
+  scroll-margin-top: var(--navbar-height);
+}

@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "ESLint Fix on Save",
+      "trigger": "PostFileSave",
+      "description": "Automatically runs ESLint with --fix on any .tsx file when it is saved, to catch and fix linting issues.",
+      "matcher": "\\.tsx$",
+      "action": {
+        "type": "command",
+        "command": "node -e \"const p=JSON.parse(require('fs').readFileSync(0,'utf8'));const f=p.filePath||p.file||(p.context&&p.context.filePath);require('child_process').execSync('npx eslint --fix \\\"'+f+'\\\"',{stdio:'inherit'})\""
+      }
+    }
+  ]
+}
