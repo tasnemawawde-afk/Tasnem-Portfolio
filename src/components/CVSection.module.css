@@ -1,38 +1,31 @@
 .section {
-  padding: var(--section-padding-y) var(--section-padding-x);
-  background-color: var(--color-surface);
+  padding: var(--space-12) var(--section-padding-x);
+  background-color: var(--color-background-alt);
+  border-top: 1px solid var(--color-border);
 }
 
+/* Compact horizontal band — prompt on the left, action on the right */
 .container {
   max-width: var(--container-max-width);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  align-items: flex-start;
+  gap: var(--space-4);
 }
 
 .heading {
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
   line-height: var(--line-height-tight);
 }
 
-.heading::after {
-  content: '';
-  display: block;
-  width: var(--heading-accent-width);
-  height: var(--heading-accent-height);
-  background-color: var(--color-accent);
-  border-radius: var(--radius-full);
-  margin-top: var(--space-3);
-}
-
 .prompt {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-base);
   color: var(--color-text-secondary);
   line-height: var(--line-height-relaxed);
-  max-width: 540px;
+  max-width: 52ch;
 }
 
 .downloadLink {
@@ -40,23 +33,43 @@
   align-items: center;
   justify-content: center;
   min-height: var(--min-touch-target);
-  padding: var(--space-3) var(--space-10);
+  padding: var(--space-3) var(--space-8);
   background-color: var(--color-accent);
   color: var(--color-accent-fg);
   font-weight: var(--font-weight-semibold);
   font-size: var(--font-size-base);
-  border-radius: var(--radius-md);
-  transition: background-color var(--transition-fast), transform var(--transition-fast);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
   text-decoration: none;
-  width: fit-content;
+  white-space: nowrap;
 }
 
 .downloadLink:hover {
   background-color: var(--color-accent-hover);
   transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
 .downloadLink:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-8);
+  }
+
+  .heading {
+    flex-shrink: 0;
+  }
+
+  .prompt {
+    flex: 1;
+    margin-left: var(--space-4);
+  }
 }

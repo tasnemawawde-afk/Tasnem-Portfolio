@@ -3,7 +3,6 @@ import { AboutSection } from '../components/AboutSection';
 import { EducationSection } from '../components/EducationSection';
 import { SkillsSection } from '../components/SkillsSection';
 import { ProjectsSection } from '../components/ProjectsSection';
-import { ExperienceSection } from '../components/ExperienceSection';
 import { TrainingSection } from '../components/TrainingSection';
 import { CVSection } from '../components/CVSection';
 import { ContactSection } from '../components/ContactSection';
@@ -29,22 +28,19 @@ const sortedExperience = [...experience].sort((a, b) =>
 
 export default function Home() {
   return (
-    <main>
+    <>
       <HeroSection
         name={hero.name}
         title={hero.title}
         tagline={hero.tagline}
         cvPath={hero.cvPath}
         contactHref="#contact"
-      />
-      <AboutSection
-        biography={about.biography}
         profileImage={about.profileImage}
       />
-      <EducationSection entries={sortedEducation} />
-      <SkillsSection categories={skills} />
+      <AboutSection biography={about.biography} />
       <ProjectsSection projects={projects} />
-      <ExperienceSection entries={sortedExperience} />
+      <SkillsSection categories={skills} />
+      <EducationSection entries={sortedEducation} experience={sortedExperience} />
       <TrainingSection certificates={certificates} />
       <CVSection cvPath={hero.cvPath} />
       <ContactSection
@@ -52,6 +48,6 @@ export default function Home() {
         githubUrl={contact.githubUrl}
         email={contact.email}
       />
-    </main>
+    </>
   );
 }

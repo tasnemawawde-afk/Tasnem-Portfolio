@@ -1,25 +1,17 @@
+/* Compact category row — divider-separated, no oversized card */
 .category {
-  background-color: var(--color-surface-raised);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: var(--space-5);
-  box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  transition: border-color var(--transition-fast);
-}
-
-.category:hover {
-  border-color: rgba(121, 134, 203, 0.4);
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .name {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-accent);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  color: var(--color-text-primary);
+  letter-spacing: 0.02em;
 }
 
 .list {
@@ -32,11 +24,19 @@
 }
 
 .item {
-  background-color: var(--color-surface);
+  background-color: var(--color-surface-alt);
   border: 1px solid var(--color-border);
   color: var(--color-text-secondary);
   font-size: var(--font-size-xs);
-  padding: 3px var(--space-3);
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-1) var(--space-3);
   border-radius: var(--radius-full);
-  line-height: 1.6;
+  line-height: 1.7;
+  transition: border-color var(--transition-fast), color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.item:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background-color: var(--color-accent-tint-06);
 }

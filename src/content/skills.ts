@@ -6,26 +6,41 @@ export interface SkillCategory {
 
 export const skills: SkillCategory[] = [
   {
-    id: "hardware-vlsi",
-    name: "Hardware & VLSI",
+    id: "design-verification",
+    name: "Digital Design & Verification",
     skills: [
       "Verilog",
       "SystemVerilog",
       "RTL simulation",
-      "Debugging and root-cause analysis",
       "Functional validation",
+      "Verification flows",
       "Test scenario development",
       "Waveform analysis",
-      "Verification flows",
+      "Debugging and root-cause analysis",
+    ],
+  },
+  {
+    id: "vlsi-microelectronics",
+    name: "VLSI & Microelectronics",
+    skills: [
       "ASIC design concepts",
       "RTL-to-GDSII flow",
-      "Digital and analog circuit fundamentals",
       "SoC architecture concepts",
-      "Power-efficient design considerations",
-      "Microelectronics",
+      "Power-efficient design",
+      "Digital and analog circuit fundamentals",
       "Semiconductor device fundamentals",
-      "Cadence Virtuoso",
-      "COMSOL Multiphysics",
+      "Mixed-signal IC design",
+    ],
+  },
+  {
+    id: "tools-software",
+    name: "EDA Tools & Software",
+    skills: ["Cadence Virtuoso", "COMSOL Multiphysics", "MATLAB"],
+  },
+  {
+    id: "lab-equipment",
+    name: "Lab Equipment",
+    skills: [
       "Oscilloscopes",
       "Logic analyzers",
       "Spectrum analyzers",
@@ -35,12 +50,7 @@ export const skills: SkillCategory[] = [
   {
     id: "programming",
     name: "Programming Languages",
-    skills: ["Python", "C++", "MATLAB", "C", "C#", "SystemVerilog"],
-  },
-  {
-    id: "tools-software",
-    name: "Tools & Software",
-    skills: ["Cadence Virtuoso", "COMSOL Multiphysics", "MATLAB"],
+    skills: ["Python", "C", "C++", "C#", "MATLAB"],
   },
   {
     id: "ai-ml",

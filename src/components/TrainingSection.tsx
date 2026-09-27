@@ -17,12 +17,17 @@ export function TrainingSection(props: TrainingSectionProps): React.JSX.Element 
   return (
     <section id="training" aria-labelledby="training-heading" className={styles.section}>
       <div className={styles.container}>
-        <h2 id="training-heading" className={styles.heading}>Training & Certificates</h2>
-        <div className={styles.grid}>
+        <header className={styles.header}>
+          <p className={styles.kicker}>Continued Learning</p>
+          <h2 id="training-heading" className={styles.heading}>Training &amp; Certificates</h2>
+        </header>
+        <ul className={styles.grid}>
           {props.certificates.map((cert) => (
-            <CertificateCard key={cert.name} {...cert} />
+            <li key={cert.name}>
+              <CertificateCard {...cert} />
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

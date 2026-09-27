@@ -10,12 +10,18 @@ export interface ExternalLink {
   label: string;
 }
 
+export interface ProjectHighlight {
+  value: string;
+  label: string;
+}
+
 export interface Project {
   id: string;
   title: string;
   description: string;
   technologies: string[];
   domain: string;
+  highlights?: ProjectHighlight[];
   externalLink?: ExternalLink;
   image?: ProjectImage;
 }
@@ -35,6 +41,12 @@ export const projects: Project[] = [
       "TDC",
     ],
     domain: "VLSI / Mixed-Signal IC Design",
+    highlights: [
+      { value: "1.25 GS/s", label: "Throughput" },
+      { value: "7.4 mW", label: "Power" },
+      { value: "50 dB", label: "SNDR" },
+      { value: "14 nm", label: "CMOS node" },
+    ],
   },
   {
     id: "mems-optical",
@@ -48,5 +60,10 @@ export const projects: Project[] = [
       "Electromagnetic actuation",
     ],
     domain: "MEMS / Optical Systems",
+    highlights: [
+      { value: "±10°", label: "Tilt angle" },
+      { value: ">100 kHz", label: "Resonance" },
+      { value: "<10 µs", label: "Response time" },
+    ],
   },
 ];

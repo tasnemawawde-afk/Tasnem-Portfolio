@@ -11,7 +11,7 @@ interface CertificateCardProps {
 export function CertificateCard(props: CertificateCardProps): React.JSX.Element {
   return (
     <article className={styles.card}>
-      <p className={styles.date}>{props.completionDate}</p>
+      <span className={styles.year}>{props.completionDate}</span>
       <h3 className={styles.name}>{props.name}</h3>
       <p className={styles.organisation}>{props.issuingOrganisation}</p>
       {props.credentialUrl && (

@@ -4,17 +4,63 @@
 
 .footer {
   border-top: 1px solid var(--footer-border);
-  background-color: var(--color-surface);
-  padding: var(--space-6) var(--section-padding-x);
+  background-color: var(--color-background-alt);
+  padding: var(--space-8) var(--section-padding-x);
 }
 
 .footerInner {
   max-width: var(--container-max-width);
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.footerName {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
 }
 
 .footerText {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   color: var(--color-text-muted);
   text-align: center;
+}
+
+.footerLinks {
+  display: flex;
+  gap: var(--space-5);
+  margin: var(--space-2) 0;
+}
+
+.footerLinks a {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.footerLinks a:hover,
+.footerLinks a:focus-visible {
+  color: var(--color-accent);
+}
+
+/* Keyboard users can jump straight past the navigation */
+.skipLink {
+  position: absolute;
+  left: var(--space-4);
+  top: -100px;
+  z-index: 200;
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-accent);
+  color: var(--color-accent-fg);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.skipLink:focus {
+  top: var(--space-3);
 }

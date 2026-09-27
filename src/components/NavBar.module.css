@@ -1,14 +1,14 @@
 /* ==========================================================================
-   NavBar — Sticky top navigation
+   NavBar — clean, spacious, light theme
    ========================================================================== */
 
 .header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(26, 29, 46, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
   border-bottom: 1px solid var(--color-border);
   height: var(--navbar-height);
 }
@@ -21,24 +21,53 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-8);
+  gap: var(--space-6);
 }
 
 /* Brand */
 .brand {
   color: var(--color-text-primary);
   font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-lg);
   text-decoration: none;
   transition: color var(--transition-fast);
   white-space: nowrap;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
 }
 
-.brand:hover,
-.brand:focus-visible {
+.brandMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-accent);
+  color: var(--color-accent-fg);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.02em;
+}
+
+.brand:hover {
   color: var(--color-accent);
-  outline: none;
+}
+
+.brand:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+/* Menu wrapper (links + CV button) */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
 }
 
 /* Desktop nav list */
@@ -53,6 +82,7 @@
 
 /* Nav links */
 .navLink {
+  position: relative;
   color: var(--color-text-secondary);
   text-decoration: none;
   font-size: var(--font-size-sm);
@@ -65,34 +95,64 @@
   align-items: center;
 }
 
-.navLink:hover,
-.navLink:focus-visible {
+.navLink:hover {
   color: var(--color-text-primary);
-  background-color: rgba(121, 134, 203, 0.08);
-  outline: none;
 }
 
 .navLink:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
+  color: var(--color-text-primary);
 }
 
-/* Active state */
+/* Active — subtle: accent text + slim underline */
 .active {
   color: var(--color-accent);
-  background-color: rgba(121, 134, 203, 0.1);
 }
 
-.active:hover {
-  color: var(--color-accent-hover);
-  background-color: rgba(121, 134, 203, 0.15);
+.active::after {
+  content: '';
+  position: absolute;
+  left: var(--space-3);
+  right: var(--space-3);
+  bottom: 4px;
+  height: 2px;
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
 }
 
-/* Hamburger button */
+/* CV button — solid accent action */
+.cvButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 var(--space-5);
+  background-color: var(--color-accent);
+  color: var(--color-accent-fg);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.cvButton:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+
+.cvButton:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Hamburger */
 .hamburger {
   display: none;
   background: none;
-  border: none;
+  border: 1px solid transparent;
   cursor: pointer;
   padding: var(--space-2);
   min-width: var(--min-touch-target);
@@ -102,11 +162,12 @@
   align-items: center;
   gap: 5px;
   border-radius: var(--radius-sm);
-  transition: background-color var(--transition-fast);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
 }
 
 .hamburger:hover {
-  background-color: rgba(121, 134, 203, 0.08);
+  background-color: var(--color-accent-tint-06);
+  border-color: var(--color-border);
 }
 
 .hamburger:focus-visible {
@@ -124,39 +185,54 @@
 }
 
 /* Mobile */
-@media (max-width: 767px) {
-  .header {
-    position: sticky;
-  }
-
+@media (max-width: 899px) {
   .hamburger {
     display: flex;
   }
 
-  .navList {
+  .menu {
     display: none;
     flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-4);
     position: absolute;
     top: var(--navbar-height);
     left: 0;
     right: 0;
-    background: rgba(26, 29, 46, 0.97);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: var(--color-background);
     border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
     padding: var(--space-4) var(--space-6) var(--space-6);
-    gap: var(--space-1);
     z-index: 99;
-    align-items: stretch;
   }
 
-  .navList.open {
+  .menu.open {
     display: flex;
+  }
+
+  .navList {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-1);
   }
 
   .navLink {
     font-size: var(--font-size-base);
     padding: var(--space-3) var(--space-4);
     justify-content: flex-start;
+    border-radius: var(--radius-md);
+  }
+
+  .active {
+    background-color: var(--color-accent-tint-06);
+  }
+
+  .active::after {
+    display: none;
+  }
+
+  .cvButton {
+    min-height: var(--min-touch-target);
+    width: 100%;
   }
 }

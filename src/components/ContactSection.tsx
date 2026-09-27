@@ -11,10 +11,20 @@ export function ContactSection(props: ContactSectionProps): React.JSX.Element {
   return (
     <section id="contact" aria-labelledby="contact-heading" className={styles.section}>
       <div className={styles.container}>
-        <h2 id="contact-heading" className={styles.heading}>Contact</h2>
+        <p className={styles.eyebrow}>Get in touch</p>
+        <h2 id="contact-heading" className={styles.heading}>Let&rsquo;s work together</h2>
         <p className={styles.intro}>
           Feel free to reach out — I am open to opportunities in hardware engineering, VLSI, and related fields.
         </p>
+
+        <a
+          href={`mailto:${props.email}`}
+          className={styles.primaryCta}
+          aria-label="Send Tasnem an email"
+        >
+          {props.email}
+        </a>
+
         <ul className={styles.linkList}>
           <li>
             <a
@@ -36,15 +46,6 @@ export function ContactSection(props: ContactSectionProps): React.JSX.Element {
               aria-label="Visit Tasnem Moura's GitHub profile"
             >
               GitHub
-            </a>
-          </li>
-          <li>
-            <a
-              href={`mailto:${props.email}`}
-              className={styles.link}
-              aria-label="Send Tasnem an email"
-            >
-              {props.email}
             </a>
           </li>
         </ul>

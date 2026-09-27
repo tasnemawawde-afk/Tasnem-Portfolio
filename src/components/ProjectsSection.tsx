@@ -14,6 +14,7 @@ interface ProjectProps {
   description: string;
   technologies: string[];
   domain: string;
+  highlights?: { value: string; label: string }[];
   externalLink?: { href: string; label: string };
   image?: ProjectImage;
 }
@@ -26,10 +27,13 @@ export function ProjectsSection(props: ProjectsSectionProps): React.JSX.Element 
   return (
     <section id="projects" aria-labelledby="projects-heading" className={styles.section}>
       <div className={styles.container}>
-        <h2 id="projects-heading" className={styles.heading}>Projects</h2>
-        <div className={styles.grid}>
-          {props.projects.map((project) => (
-            <ProjectCard key={project.title} {...project} />
+        <header className={styles.header}>
+          <p className={styles.kicker}>Selected Work</p>
+          <h2 id="projects-heading" className={styles.heading}>Engineering Projects</h2>
+        </header>
+        <div className={styles.list}>
+          {props.projects.map((project, index) => (
+            <ProjectCard key={project.title} index={index + 1} {...project} />
           ))}
         </div>
       </div>

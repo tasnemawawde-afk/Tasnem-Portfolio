@@ -1,6 +1,8 @@
 .section {
   padding: var(--section-padding-y) var(--section-padding-x);
-  background-color: var(--color-background);
+  background-color: var(--color-background-alt);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .container {
@@ -8,35 +10,32 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: var(--space-8);
+  gap: var(--space-10);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.kicker {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .heading {
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
   line-height: var(--line-height-tight);
 }
 
-.heading::after {
-  content: '';
-  display: block;
-  width: var(--heading-accent-width);
-  height: var(--heading-accent-height);
-  background-color: var(--color-accent);
-  border-radius: var(--radius-full);
-  margin-top: var(--space-3);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
+.list {
+  display: flex;
+  flex-direction: column;
   gap: var(--space-6);
-  align-items: start;
-}
-
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }

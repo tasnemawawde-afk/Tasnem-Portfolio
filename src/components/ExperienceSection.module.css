@@ -1,6 +1,6 @@
 .section {
   padding: var(--section-padding-y) var(--section-padding-x);
-  background-color: var(--color-surface);
+  background-color: var(--color-background);
 }
 
 .container {
@@ -8,7 +8,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: var(--space-8);
+  gap: var(--space-10);
 }
 
 .heading {
@@ -23,20 +23,33 @@
   display: block;
   width: var(--heading-accent-width);
   height: var(--heading-accent-height);
-  background-color: var(--color-accent);
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-violet));
   border-radius: var(--radius-full);
   margin-top: var(--space-3);
 }
 
+/* Timeline rail — matches Education for cohesion */
 .list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-4);
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  position: relative;
+  padding-left: var(--space-6);
+}
+
+.list::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(180deg, var(--color-accent), var(--color-border) 85%);
 }
 
 @media (min-width: 768px) {
   .list {
-    grid-template-columns: repeat(2, 1fr);
+    padding-left: var(--space-8);
   }
 }

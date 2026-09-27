@@ -1,31 +1,43 @@
 /* ==========================================================================
-   Design Tokens — CSS Custom Properties
+   Design Tokens — Light theme, clean & professional
    ========================================================================== */
 
 :root {
   /* --------------------------------------------------------------------------
-     Colour Palette
+     Colour Palette — bright, elegant, one restrained blue accent
      -------------------------------------------------------------------------- */
 
-  /* Neutrals */
-  --color-background:     #0f1117; /* deep navy-black */
-  --color-surface:        #1a1d2e; /* card / section background */
-  --color-surface-raised: #222640; /* elevated card */
-  --color-border:         #2e3354;
+  /* Backgrounds */
+  --color-background:      #ffffff; /* main white */
+  --color-background-alt:  #f5f7fa; /* very light cool-gray section separation */
+  --color-surface:         #ffffff; /* card / surface */
+  --color-surface-alt:     #f8fafc; /* subtle inner surface */
+  --color-surface-tint:    #eef4fb; /* faint blue-tinted panel */
 
-  /* Text */
-  --color-text-primary:   #e8eaf6; /* high-contrast body text */
-  --color-text-secondary: #9fa8da; /* subdued labels */
-  --color-text-muted:     #6272a4; /* timestamps, metadata */
+  /* Borders */
+  --color-border:          #e4e8ee; /* subtle gray */
+  --color-border-strong:   #d3dae3;
 
-  /* Accent */
-  --color-accent:       #7986cb; /* indigo — links, active states */
-  --color-accent-hover: #9fa8da;
-  --color-accent-fg:    #0f1117; /* text on accent backgrounds */
+  /* Text — deep navy/charcoal for strong readability */
+  --color-text-primary:   #14213d; /* deep navy — headings */
+  --color-text-secondary: #3d4a63; /* body copy */
+  --color-text-muted:     #6b7688; /* metadata, captions */
+
+  /* Accent — restrained steel/clean blue */
+  --color-accent:        #2563eb; /* primary accent */
+  --color-accent-hover:  #1d4ed8;
+  --color-accent-strong: #1e40af;
+  --color-accent-soft:   #dbe6fb; /* soft fill */
+  --color-accent-fg:     #ffffff; /* text on accent */
+
+  /* Accent tints */
+  --color-accent-tint-06: rgba(37, 99, 235, 0.06);
+  --color-accent-tint-10: rgba(37, 99, 235, 0.10);
+  --color-accent-tint-16: rgba(37, 99, 235, 0.16);
 
   /* Semantic */
-  --color-error:   #ef5350;
-  --color-success: #66bb6a;
+  --color-error:   #dc2626;
+  --color-success: #16a34a;
 
   /* --------------------------------------------------------------------------
      Typography
@@ -33,6 +45,8 @@
 
   --font-family-base: system-ui, -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-mono: ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo,
+    Consolas, 'Liberation Mono', monospace;
 
   /* Scale (rem) */
   --font-size-xs:   0.75rem;   /*  12px */
@@ -44,6 +58,7 @@
   --font-size-3xl:  1.875rem;  /*  30px */
   --font-size-4xl:  2.25rem;   /*  36px */
   --font-size-5xl:  3rem;      /*  48px */
+  --font-size-6xl:  3.75rem;   /*  60px */
 
   /* Weight */
   --font-weight-normal:   400;
@@ -52,75 +67,73 @@
   --font-weight-bold:     700;
 
   /* Line height */
-  --line-height-tight:   1.2;
-  --line-height-snug:    1.4;
+  --line-height-tight:   1.15;
+  --line-height-snug:    1.35;
   --line-height-normal:  1.6;
   --line-height-relaxed: 1.75;
 
   /* --------------------------------------------------------------------------
-     Spacing
+     Spacing — tightened rhythm to reduce empty space
      -------------------------------------------------------------------------- */
 
-  --space-1:  0.25rem;  /*  4px */
-  --space-2:  0.5rem;   /*  8px */
-  --space-3:  0.75rem;  /* 12px */
-  --space-4:  1rem;     /* 16px */
-  --space-5:  1.25rem;  /* 20px */
-  --space-6:  1.5rem;   /* 24px */
-  --space-8:  2rem;     /* 32px */
-  --space-10: 2.5rem;   /* 40px */
-  --space-12: 3rem;     /* 48px */
-  --space-16: 4rem;     /* 64px */
-  --space-20: 5rem;     /* 80px */
-  --space-24: 6rem;     /* 96px */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
 
-  --section-padding-y:   var(--space-20);
+  --section-padding-y:   var(--space-16);
   --section-padding-x:   var(--space-6);
-  --container-max-width: 1100px;
+  --container-max-width: 1080px;
+  --container-narrow:    720px;
   --navbar-height:       4rem; /* 64px */
 
   /* --------------------------------------------------------------------------
      Border Radius
      -------------------------------------------------------------------------- */
 
-  --radius-sm:   0.25rem;
-  --radius-md:   0.5rem;
-  --radius-lg:   1rem;
+  --radius-sm:   0.375rem;
+  --radius-md:   0.625rem;
+  --radius-lg:   0.875rem;
+  --radius-xl:   1.25rem;
   --radius-full: 9999px;
 
   /* --------------------------------------------------------------------------
      Transitions
      -------------------------------------------------------------------------- */
 
-  --transition-fast:   150ms ease;
-  --transition-normal: 250ms ease;
+  --transition-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 240ms cubic-bezier(0.4, 0, 0.2, 1);
 
   /* --------------------------------------------------------------------------
-     Shadows
+     Shadows — soft, elegant, light-theme
      -------------------------------------------------------------------------- */
 
-  --shadow-card:   0 2px 8px rgba(0, 0, 0, 0.4);
-  --shadow-raised: 0 4px 16px rgba(0, 0, 0, 0.6);
+  --shadow-xs:   0 1px 2px rgba(20, 33, 61, 0.05);
+  --shadow-sm:   0 1px 3px rgba(20, 33, 61, 0.07), 0 1px 2px rgba(20, 33, 61, 0.04);
+  --shadow-md:   0 6px 20px -8px rgba(20, 33, 61, 0.12), 0 2px 6px rgba(20, 33, 61, 0.05);
+  --shadow-lg:   0 18px 40px -16px rgba(20, 33, 61, 0.18), 0 4px 12px rgba(20, 33, 61, 0.06);
 
   /* --------------------------------------------------------------------------
      Accessibility
      -------------------------------------------------------------------------- */
 
-  /* Minimum touch target size per WCAG 2.5.5 */
   --min-touch-target: 44px;
 
   /* Section heading accent */
-  --heading-accent-width: 3rem;
+  --heading-accent-width: 2.5rem;
   --heading-accent-height: 3px;
 
-  /* Elevated surface hover */
-  --color-surface-hover: #282c44;
-
-  /* Gradient for hero background */
-  --hero-gradient: linear-gradient(135deg, #0f1117 0%, #141829 60%, #1a1d2e 100%);
-
-  /* Section alternation helpers (same as existing surface/background) */
-  --color-section-alt: var(--color-surface);
+  /* Hero soft background wash (very light, no heavy gradient) */
+  --hero-wash:
+    radial-gradient(900px 460px at 82% -12%, var(--color-surface-tint) 0%, transparent 60%),
+    linear-gradient(180deg, #ffffff 0%, var(--color-background-alt) 100%);
 
   /* Footer */
   --footer-border: var(--color-border);
@@ -139,30 +152,27 @@
 }
 
 html {
-  /* Prevent horizontal overflow at all viewport widths */
   overflow-x: hidden;
-  /* Use the system colour scheme; keeps browser UI consistent */
-  color-scheme: dark;
-  /* Smooth scrolling for anchor navigation */
+  color-scheme: light;
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   background-color: var(--color-background);
-  color: var(--color-text-primary);
+  color: var(--color-text-secondary);
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-normal);
   line-height: var(--line-height-normal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   min-height: 100vh;
-  /* Allow footer to stay at bottom on short pages */
   display: flex;
   flex-direction: column;
 }
 
-/* Responsive images — never exceed their container */
 img,
 video {
   max-width: 100%;
@@ -170,13 +180,11 @@ video {
   display: block;
 }
 
-/* Remove default list styling; components add their own */
 ul,
 ol {
   list-style: none;
 }
 
-/* Inherit font from body by default */
 input,
 button,
 textarea,
@@ -184,17 +192,47 @@ select {
   font: inherit;
 }
 
-/* Links: unstyled by default; components override as needed */
 a {
   color: inherit;
   text-decoration: none;
 }
 
+h1,
+h2,
+h3 {
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+/* Anchored sections clear the sticky navbar */
+section[id] {
+  scroll-margin-top: calc(var(--navbar-height) + var(--space-4));
+}
+
 /* ==========================================================================
-   Section Scroll Offset
-   Ensures anchored sections clear the sticky navbar when jumped to via links.
+   Shared section primitives — for one cohesive rhythm across the page
    ========================================================================== */
 
-section[id] {
-  scroll-margin-top: var(--navbar-height);
+.sectionInner {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Reduced Motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

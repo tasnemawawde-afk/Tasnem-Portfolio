@@ -1,13 +1,26 @@
 import type { ReactNode } from 'react';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { NavBar } from '../components/NavBar';
+import { hero } from '../content/hero';
+import { contact } from '../content/contact';
+import { SITE_URL } from '../content/site';
 import styles from './layout.module.css';
 import './globals.css';
 
+const TITLE = 'Tasnem Moura | Electrical & Computer Engineer';
+const DESCRIPTION =
+  'Tasnem Moura — Electrical and Computer Engineering graduate specialising in VLSI, microelectronics, digital systems, and hardware engineering.';
+
 export const metadata: Metadata = {
-  title: 'Tasnem Moura | Electrical & Computer Engineer',
-  description:
-    'Personal portfolio of Tasnem Moura — Electrical and Computer Engineering graduate specialising in VLSI, microelectronics, digital systems, and hardware engineering.',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: TITLE,
+    template: '%s | Tasnem Moura',
+  },
+  description: DESCRIPTION,
+  applicationName: 'Tasnem Moura',
+  authors: [{ name: 'Tasnem Moura', url: SITE_URL }],
+  creator: 'Tasnem Moura',
   keywords: [
     'Tasnem Moura',
     'Electrical Engineer',
@@ -20,16 +33,72 @@ export const metadata: Metadata = {
     'Chip Verification',
     'Portfolio',
   ],
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'profile',
+    url: '/',
+    siteName: 'Tasnem Moura',
+    title: TITLE,
+    description: DESCRIPTION,
+    locale: 'en_US',
+    firstName: 'Tasnem',
+    lastName: 'Moura',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: '#ffffff',
+};
+
+// Structured data so search engines understand this is a personal profile page.
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: hero.name,
+  jobTitle: hero.title,
+  url: SITE_URL,
+  image: `${SITE_URL}/images/profile.jpg`,
+  email: `mailto:${contact.email}`,
+  sameAs: [contact.linkedInUrl, contact.githubUrl],
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'The Hebrew University of Jerusalem',
+  },
+  knowsAbout: ['VLSI', 'Microelectronics', 'Digital Design', 'Hardware Verification', 'MEMS'],
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <a href="#main-content" className={styles.skipLink}>
+          Skip to content
+        </a>
         <NavBar />
-        <main className={styles.main}>{children}</main>
+        <main id="main-content" className={styles.main}>{children}</main>
         <footer className={styles.footer}>
           <div className={styles.footerInner}>
+            <p className={styles.footerName}>Tasnem Moura</p>
+            <ul className={styles.footerLinks}>
+              <li><a href={`mailto:${contact.email}`}>Email</a></li>
+              <li><a href={contact.linkedInUrl} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+              <li><a href={contact.githubUrl} target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            </ul>
             <p className={styles.footerText}>
               © {new Date().getFullYear()} Tasnem Moura. All rights reserved.
             </p>
