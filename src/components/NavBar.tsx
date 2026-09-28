@@ -10,6 +10,7 @@ const NAV_ITEMS = [
   { label: 'Skills',       href: '#skills'   },
   { label: 'Background',   href: '#education' },
   { label: 'Certificates', href: '#training' },
+  { label: 'Events',       href: '#conferences' },
   { label: 'Contact',      href: '#contact'  },
 ] as const;
 

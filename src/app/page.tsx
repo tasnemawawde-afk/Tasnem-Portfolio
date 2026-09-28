@@ -4,6 +4,7 @@ import { EducationSection } from '../components/EducationSection';
 import { SkillsSection } from '../components/SkillsSection';
 import { ProjectsSection } from '../components/ProjectsSection';
 import { TrainingSection } from '../components/TrainingSection';
+import { ConferencesSection } from '../components/ConferencesSection';
 import { CVSection } from '../components/CVSection';
 import { ContactSection } from '../components/ContactSection';
 
@@ -15,6 +16,7 @@ import { projects } from '../content/projects';
 import { experience } from '../content/experience';
 import { certificates } from '../content/certificates';
 import { contact } from '../content/contact';
+import { conferences } from '../content/conferences';
 
 // Reverse-chronological sort — education by graduationYear descending
 const sortedEducation = [...education].sort((a, b) => b.graduationYear - a.graduationYear);
@@ -42,6 +44,7 @@ export default function Home() {
       <SkillsSection categories={skills} />
       <EducationSection entries={sortedEducation} experience={sortedExperience} />
       <TrainingSection certificates={certificates} />
+      <ConferencesSection content={conferences} />
       <CVSection cvPath={hero.cvPath} />
       <ContactSection
         linkedInUrl={contact.linkedInUrl}
