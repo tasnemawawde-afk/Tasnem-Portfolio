@@ -15,9 +15,15 @@ export interface FeaturedConference {
   photos: ConferencePhoto[];
 }
 
+export interface ConferenceStat {
+  value: string;
+  label: string;
+}
+
 export interface ConferencesContent {
   featured: FeaturedConference;
   summary: string;
+  stats: ConferenceStat[];
   fields: string[];
 }
 
@@ -47,6 +53,10 @@ export const conferences: ConferencesContent = {
     ],
   },
   summary:
-    "Attended 20+ industry conferences and tech events hosted by leading companies over the years.",
-  fields: ["Software", "Formal verification", "Semiconductors", "AI & Cloud"],
+    "Beyond the summit, I have attended industry conferences consistently since 2021 — around nine a year, in person and online — hosted by leading hardware and software companies.",
+  stats: [
+    { value: "2021", label: "Since" },
+    { value: "~9 / year", label: "Conferences" },
+  ],
+  fields: ["Hardware", "Software", "Formal verification", "Physical design", "AI & Cloud"],
 };

@@ -57,6 +57,14 @@ export function ConferencesSection({ content }: ConferencesSectionProps): React.
 
         <div className={styles.more}>
           <p className={styles.summary}>{content.summary}</p>
+          <dl className={styles.stats}>
+            {content.stats.map((stat) => (
+              <div key={stat.label} className={styles.stat}>
+                <dt className={styles.statLabel}>{stat.label}</dt>
+                <dd className={styles.statValue}>{stat.value}</dd>
+              </div>
+            ))}
+          </dl>
           <ul className={styles.fields} aria-label="Conference fields">
             {content.fields.map((field) => (
               <li key={field} className={styles.field}>{field}</li>
