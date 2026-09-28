@@ -36,10 +36,10 @@ export function ConferencesSection({ content }: ConferencesSectionProps): React.
           </div>
 
           <div className={styles.gallery}>
-            {featured.photos.map((photo, i) => (
+            {featured.photos.map((photo) => (
               <figure
                 key={photo.src}
-                className={i === 0 ? styles.photoMain : styles.photoSecondary}
+                className={photo.width > photo.height ? styles.photoWide : styles.photoTall}
               >
                 <Image
                   src={photo.src}
@@ -56,20 +56,18 @@ export function ConferencesSection({ content }: ConferencesSectionProps): React.
         </article>
 
         <div className={styles.more}>
-          <p className={styles.summary}>{content.summary}</p>
-          <dl className={styles.stats}>
-            {content.stats.map((stat) => (
-              <div key={stat.label} className={styles.stat}>
-                <dt className={styles.statLabel}>{stat.label}</dt>
-                <dd className={styles.statValue}>{stat.value}</dd>
-              </div>
-            ))}
-          </dl>
-          <ul className={styles.fields} aria-label="Conference fields">
-            {content.fields.map((field) => (
-              <li key={field} className={styles.field}>{field}</li>
-            ))}
-          </ul>
+          <p className={styles.highlight}>
+            <span className={styles.highlightValue}>{content.highlight.value}</span>
+            <span className={styles.highlightLabel}>{content.highlight.label}</span>
+          </p>
+          <div className={styles.moreText}>
+            <p className={styles.summary}>{content.summary}</p>
+            <ul className={styles.fields} aria-label="Conference fields">
+              {content.fields.map((field) => (
+                <li key={field} className={styles.field}>{field}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>

@@ -22,8 +22,8 @@ export interface ConferenceStat {
 
 export interface ConferencesContent {
   featured: FeaturedConference;
+  highlight: ConferenceStat;
   summary: string;
-  stats: ConferenceStat[];
   fields: string[];
 }
 
@@ -44,19 +44,23 @@ export const conferences: ConferencesContent = {
         caption: "WO.men CEO Summit 2026 · Bloomfield Stadium",
       },
       {
+        src: "/images/conferences/women-ceo-summit-2025-badge.jpg",
+        width: 900,
+        height: 1125,
+        alt: "Tasnem Moura's attendee badge at the WO.men CEO Summit 2025",
+        caption: "WO.men CEO Summit 2025 · Attendee",
+      },
+      {
         src: "/images/conferences/women-ceo-summit-panel.jpg",
         width: 1200,
         height: 675,
         alt: "Panel of women leaders on stage at the WO.men CEO Summit",
-        caption: "Panel: women in hi-tech leadership — challenges, successes and what's next",
+        caption: "WO.men CEO Summit 2025 · Panel: women in hi-tech leadership",
       },
     ],
   },
+  highlight: { value: "50+", label: "Industry conferences since 2021" },
   summary:
-    "Beyond the summit, I have attended industry conferences consistently since 2021 — around nine a year, in person and online — hosted by leading hardware and software companies.",
-  stats: [
-    { value: "2021", label: "Since" },
-    { value: "~9 / year", label: "Conferences" },
-  ],
+    "Beyond the summit, I have been a regular at industry conferences since 2021 — in person and online — hosted by leading hardware, semiconductor and software companies, keeping close to where the field is heading.",
   fields: ["Hardware", "Software", "Formal verification", "Physical design", "AI & Cloud"],
 };
