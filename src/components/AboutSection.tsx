@@ -27,7 +27,7 @@ export function AboutSection(props: AboutProps): React.JSX.Element {
     <section id="about" aria-labelledby="about-heading" className={styles.section}>
       <div className={styles.container}>
         <div className={styles.intro}>
-          <p className={styles.kicker}>About</p>
+          <p className={styles.kicker}>01 · About</p>
           <h2 id="about-heading" className={styles.heading}>
             Engineering focused on hardware, from circuit to system.
           </h2>

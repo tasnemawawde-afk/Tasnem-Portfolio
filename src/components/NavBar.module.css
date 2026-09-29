@@ -1,190 +1,159 @@
 /* ==========================================================================
-   NavBar — clean, spacious, light theme
+   NavBar — floating glass bar
    ========================================================================== */
 
 .header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
-  border-bottom: 1px solid var(--color-border);
   height: var(--navbar-height);
+  padding: var(--space-3) var(--space-4);
 }
 
 .nav {
   max-width: var(--container-max-width);
-  margin: 0 auto;
-  padding: 0 var(--space-6);
   height: 100%;
+  margin: 0 auto;
+  padding: 0 var(--space-3) 0 var(--space-4);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-6);
+  background: rgba(10, 13, 21, 0.72);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.9);
 }
 
 /* Brand */
 .brand {
-  color: var(--color-text-primary);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-lg);
-  text-decoration: none;
-  transition: color var(--transition-fast);
-  white-space: nowrap;
-  letter-spacing: -0.02em;
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-}
-
-.brandMark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  border-radius: var(--radius-sm);
-  background-color: var(--color-accent);
-  color: var(--color-accent-fg);
-  font-family: var(--font-family-mono);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-bold);
-  letter-spacing: 0.02em;
+  color: var(--color-text-primary);
+  font-family: var(--font-family-display);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  transition: color var(--transition-fast);
 }
 
 .brand:hover {
   color: var(--color-accent);
 }
 
-.brand:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 4px;
+.brandMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9rem;
+  height: 1.9rem;
   border-radius: var(--radius-sm);
+  background: var(--gradient-wafer);
+  color: var(--color-accent-fg);
+  font-family: var(--font-family-mono);
+  font-size: 0.65rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.02em;
 }
 
-/* Menu wrapper (links + CV button) */
+/* Menu wrapper */
 .menu {
   display: flex;
   align-items: center;
-  gap: var(--space-6);
+  gap: var(--space-4);
 }
 
-/* Desktop nav list */
 .navList {
   display: flex;
   gap: var(--space-1);
-  list-style: none;
-  margin: 0;
-  padding: 0;
   align-items: center;
 }
 
-/* Nav links */
 .navLink {
   position: relative;
-  color: var(--color-text-secondary);
-  text-decoration: none;
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  padding: var(--space-2) var(--space-3);
-  border-radius: var(--radius-sm);
-  transition: color var(--transition-fast), background-color var(--transition-fast);
-  min-height: var(--min-touch-target);
   display: inline-flex;
   align-items: center;
+  min-height: 2.25rem;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-full);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
 }
 
 .navLink:hover {
   color: var(--color-text-primary);
 }
 
-.navLink:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-  color: var(--color-text-primary);
-}
-
-/* Active — subtle: accent text + slim underline */
 .active {
-  color: var(--color-accent);
+  color: var(--color-text-primary);
+  background: rgba(255, 255, 255, 0.06);
 }
 
-.active::after {
+.active::before {
   content: '';
-  position: absolute;
-  left: var(--space-3);
-  right: var(--space-3);
-  bottom: 4px;
-  height: 2px;
-  border-radius: var(--radius-full);
-  background: var(--color-accent);
+  width: 6px;
+  height: 6px;
+  margin-right: var(--space-2);
+  border-radius: 50%;
+  background: var(--color-signal);
+  box-shadow: var(--glow-signal);
 }
 
-/* CV button — solid accent action */
+/* CV button */
 .cvButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 40px;
+  min-height: 2.5rem;
   padding: 0 var(--space-5);
-  background-color: var(--color-accent);
+  background: var(--color-accent);
   color: var(--color-accent-fg);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   border-radius: var(--radius-full);
-  text-decoration: none;
   white-space: nowrap;
-  transition: background-color var(--transition-fast), transform var(--transition-fast);
+  transition: background-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
 }
 
 .cvButton:hover {
-  background-color: var(--color-accent-hover);
+  background: var(--color-accent-hover);
+  box-shadow: var(--glow-accent);
   transform: translateY(-1px);
-}
-
-.cvButton:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
 }
 
 /* Hamburger */
 .hamburger {
   display: none;
-  background: none;
-  border: 1px solid transparent;
-  cursor: pointer;
-  padding: var(--space-2);
-  min-width: var(--min-touch-target);
-  min-height: var(--min-touch-target);
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 5px;
-  border-radius: var(--radius-sm);
-  transition: background-color var(--transition-fast), border-color var(--transition-fast);
-}
-
-.hamburger:hover {
-  background-color: var(--color-accent-tint-06);
-  border-color: var(--color-border);
-}
-
-.hamburger:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
+  min-width: var(--min-touch-target);
+  min-height: var(--min-touch-target);
+  background: none;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
 }
 
 .hamburger span {
   display: block;
-  width: 20px;
+  width: 18px;
   height: 2px;
-  background: var(--color-text-primary);
   border-radius: 2px;
-  transition: var(--transition-fast);
+  background: var(--color-text-primary);
 }
 
-/* Mobile */
+.hamburger:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
 @media (max-width: 1023px) {
   .hamburger {
     display: flex;
@@ -192,18 +161,18 @@
 
   .menu {
     display: none;
+    position: absolute;
+    top: calc(var(--navbar-height) - var(--space-1));
+    left: var(--space-4);
+    right: var(--space-4);
     flex-direction: column;
     align-items: stretch;
     gap: var(--space-4);
-    position: absolute;
-    top: var(--navbar-height);
-    left: 0;
-    right: 0;
-    background: var(--color-background);
-    border-bottom: 1px solid var(--color-border);
-    box-shadow: var(--shadow-md);
-    padding: var(--space-4) var(--space-6) var(--space-6);
-    z-index: 99;
+    padding: var(--space-4);
+    background: rgba(12, 15, 24, 0.97);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
   }
 
   .menu.open {
@@ -213,26 +182,16 @@
   .navList {
     flex-direction: column;
     align-items: stretch;
-    gap: var(--space-1);
   }
 
   .navLink {
+    min-height: var(--min-touch-target);
+    padding: 0 var(--space-4);
     font-size: var(--font-size-base);
-    padding: var(--space-3) var(--space-4);
-    justify-content: flex-start;
     border-radius: var(--radius-md);
-  }
-
-  .active {
-    background-color: var(--color-accent-tint-06);
-  }
-
-  .active::after {
-    display: none;
   }
 
   .cvButton {
     min-height: var(--min-touch-target);
-    width: 100%;
   }
 }

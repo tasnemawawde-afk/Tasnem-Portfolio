@@ -1,42 +1,78 @@
-/* Compact category row — divider-separated, no oversized card */
+/* Each category is a functional block on a chip floorplan */
 .category {
+  position: relative;
+  counter-increment: block;
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  padding: var(--space-6) 0;
-  border-bottom: 1px solid var(--color-border);
+  gap: var(--space-4);
+  height: 100%;
+  padding: var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.012) 0 6px, transparent 6px 12px),
+    var(--color-surface);
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.category:hover {
+  border-color: var(--color-accent-soft);
+  box-shadow: inset 0 0 40px -20px rgba(244, 184, 96, 0.35);
+}
+
+/* Block designator, e.g. U1, U2 … */
+.category::before {
+  content: 'U' counter(block);
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-5);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+/* Corner alignment marks */
+.category::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  bottom: 6px;
+  width: 10px;
+  height: 10px;
+  border-left: 1px solid var(--color-accent-soft);
+  border-bottom: 1px solid var(--color-accent-soft);
 }
 
 .name {
-  font-size: var(--font-size-sm);
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
+  padding-right: var(--space-8);
 }
 
 .list {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 .item {
-  background-color: var(--color-surface-alt);
-  border: 1px solid var(--color-border);
+  font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
   padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-full);
-  line-height: 1.7;
+  background: rgba(7, 9, 15, 0.5);
+  line-height: 1.6;
   transition: border-color var(--transition-fast), color var(--transition-fast), background-color var(--transition-fast);
 }
 
 .item:hover {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-  background-color: var(--color-accent-tint-06);
+  border-color: var(--color-signal);
+  color: var(--color-signal);
+  background: var(--color-signal-soft);
 }

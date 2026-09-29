@@ -1,13 +1,14 @@
 .section {
-  padding: var(--space-12) var(--section-padding-x);
-  background-color: var(--color-background-alt);
-  border-top: 1px solid var(--color-border);
+  padding: var(--space-8) var(--section-padding-x);
 }
 
 /* Compact horizontal band — prompt on the left, action on the right */
 .container {
   max-width: var(--container-max-width);
   margin: 0 auto;
+  padding: var(--space-8);
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-lg);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -15,7 +16,10 @@
 }
 
 .heading {
-  font-size: var(--font-size-xl);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
   line-height: var(--line-height-tight);
@@ -47,8 +51,8 @@
 
 .downloadLink:hover {
   background-color: var(--color-accent-hover);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  box-shadow: var(--glow-accent);
 }
 
 .downloadLink:focus-visible {

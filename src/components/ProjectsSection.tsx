@@ -28,7 +28,7 @@ export function ProjectsSection(props: ProjectsSectionProps): React.JSX.Element 
     <section id="projects" aria-labelledby="projects-heading" className={styles.section}>
       <div className={styles.container}>
         <header className={styles.header}>
-          <p className={styles.kicker}>Selected Work</p>
+          <p className={styles.kicker}>02 · Selected Work</p>
           <h2 id="projects-heading" className={styles.heading}>Engineering Projects</h2>
         </header>
         <div className={styles.list}>

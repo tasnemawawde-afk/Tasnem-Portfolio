@@ -4,8 +4,17 @@
 }
 
 .container {
-  max-width: var(--container-narrow);
+  position: relative;
+  overflow: hidden;
+  max-width: var(--container-max-width);
   margin: 0 auto;
+  padding: clamp(3rem, 8vw, 5.5rem) var(--space-6);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(600px 300px at 50% 0%, rgba(165, 139, 255, 0.18), transparent 70%),
+    radial-gradient(500px 260px at 50% 110%, rgba(244, 184, 96, 0.14), transparent 70%),
+    var(--color-surface);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,15 +23,17 @@
 }
 
 .eyebrow {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-accent);
-  letter-spacing: 0.06em;
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-signal);
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
 .heading {
-  font-size: var(--font-size-4xl);
+  font-size: clamp(2.4rem, 7vw, 4.5rem);
+  letter-spacing: -0.04em;
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
   line-height: var(--line-height-tight);
@@ -56,8 +67,8 @@
 
 .primaryCta:hover {
   background-color: var(--color-accent-hover);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  box-shadow: var(--glow-accent);
 }
 
 .primaryCta:focus-visible {
@@ -81,7 +92,7 @@
   align-items: center;
   min-height: var(--min-touch-target);
   padding: var(--space-3) var(--space-6);
-  background-color: var(--color-surface);
+  background-color: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-full);
   font-size: var(--font-size-base);

@@ -29,7 +29,7 @@ export function EducationSection(props: EducationSectionProps): React.JSX.Elemen
     >
       <div className={styles.container}>
         <header className={styles.header}>
-          <p className={styles.kicker}>Background</p>
+          <p className={styles.kicker}>04 · Background</p>
           <h2 id="background-heading" className={styles.heading}>
             Education &amp; Experience
           </h2>

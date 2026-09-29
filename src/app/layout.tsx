@@ -58,7 +58,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#ffffff',
+  themeColor: '#07090f',
+  colorScheme: 'dark',
 };
 
 // Structured data so search engines understand this is a personal profile page.
@@ -81,6 +82,15 @@ const personJsonLd = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+        />
+      </head>
       <body>
         <script
           type="application/ld+json"
@@ -93,14 +103,17 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <main id="main-content" className={styles.main}>{children}</main>
         <footer className={styles.footer}>
           <div className={styles.footerInner}>
-            <p className={styles.footerName}>Tasnem Moura</p>
+            <p className={styles.footerName}>
+              <span className={styles.footerMark} aria-hidden="true">TM</span>
+              Tasnem Moura
+            </p>
             <ul className={styles.footerLinks}>
               <li><a href={`mailto:${contact.email}`}>Email</a></li>
               <li><a href={contact.linkedInUrl} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
               <li><a href={contact.githubUrl} target="_blank" rel="noopener noreferrer">GitHub</a></li>
             </ul>
             <p className={styles.footerText}>
-              © {new Date().getFullYear()} Tasnem Moura. All rights reserved.
+              © {new Date().getFullYear()} Tasnem Moura · Designed from circuit to system.
             </p>
           </div>
         </footer>

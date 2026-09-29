@@ -14,7 +14,7 @@ export function ConferencesSection({ content }: ConferencesSectionProps): React.
     <section id="conferences" aria-labelledby="conferences-heading" className={styles.section}>
       <div className={styles.container}>
         <header className={styles.header}>
-          <p className={styles.kicker}>Industry Engagement</p>
+          <p className={styles.kicker}>06 · Industry Engagement</p>
           <h2 id="conferences-heading" className={styles.heading}>Conferences &amp; Events</h2>
         </header>
 

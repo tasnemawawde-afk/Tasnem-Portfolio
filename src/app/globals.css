@@ -1,81 +1,79 @@
 /* ==========================================================================
-   Design Tokens — Light theme, clean & professional
+   Design Tokens — "Silicon" dark theme
+   Deep die-black background, copper traces, cyan signals.
    ========================================================================== */
 
 :root {
-  /* --------------------------------------------------------------------------
-     Colour Palette — bright, elegant, one restrained blue accent
-     -------------------------------------------------------------------------- */
-
   /* Backgrounds */
-  --color-background:      #ffffff; /* main white */
-  --color-background-alt:  #f5f7fa; /* very light cool-gray section separation */
-  --color-surface:         #ffffff; /* card / surface */
-  --color-surface-alt:     #f8fafc; /* subtle inner surface */
-  --color-surface-tint:    #eef4fb; /* faint blue-tinted panel */
+  --color-background:      #07090f; /* die black */
+  --color-background-alt:  #0a0d15;
+  --color-surface:         #0e121c; /* card */
+  --color-surface-alt:     #131826; /* inner surface / chips */
+  --color-surface-tint:    rgba(244, 184, 96, 0.07);
+  --color-surface-raised:  #121726;
 
   /* Borders */
-  --color-border:          #e4e8ee; /* subtle gray */
-  --color-border-strong:   #d3dae3;
+  --color-border:          rgba(255, 255, 255, 0.07);
+  --color-border-strong:   rgba(255, 255, 255, 0.14);
 
-  /* Text — deep navy/charcoal for strong readability */
-  --color-text-primary:   #14213d; /* deep navy — headings */
-  --color-text-secondary: #3d4a63; /* body copy */
-  --color-text-muted:     #6b7688; /* metadata, captions */
+  /* Text */
+  --color-text-primary:   #eef1f8;
+  --color-text-secondary: #b3bacb;
+  --color-text-muted:     #7c859b;
 
-  /* Accent — restrained steel/clean blue */
-  --color-accent:        #2563eb; /* primary accent */
-  --color-accent-hover:  #1d4ed8;
-  --color-accent-strong: #1e40af;
-  --color-accent-soft:   #dbe6fb; /* soft fill */
-  --color-accent-fg:     #ffffff; /* text on accent */
+  /* Accent — copper / gold (traces, actions) */
+  --color-accent:        #f4b860;
+  --color-accent-hover:  #ffcb80;
+  --color-accent-strong: #ffd59a;
+  --color-accent-soft:   rgba(244, 184, 96, 0.22);
+  --color-accent-fg:     #1a1206;
 
-  /* Accent tints */
-  --color-accent-tint-06: rgba(37, 99, 235, 0.06);
-  --color-accent-tint-10: rgba(37, 99, 235, 0.10);
-  --color-accent-tint-16: rgba(37, 99, 235, 0.16);
+  --color-accent-tint-06: rgba(244, 184, 96, 0.06);
+  --color-accent-tint-08: rgba(244, 184, 96, 0.08);
+  --color-accent-tint-10: rgba(244, 184, 96, 0.10);
+  --color-accent-tint-16: rgba(244, 184, 96, 0.16);
+
+  /* Signal — cyan (waveforms, data, highlights) */
+  --color-signal:       #5eead4;
+  --color-signal-soft:  rgba(94, 234, 212, 0.14);
+  --color-violet:       #a58bff;
+
+  /* Wafer iridescence — used sparingly for display text */
+  --gradient-wafer: linear-gradient(100deg, #ffd59a 0%, #f4b860 30%, #f59e8b 55%, #a58bff 78%, #5eead4 100%);
 
   /* Semantic */
-  --color-error:   #dc2626;
-  --color-success: #16a34a;
+  --color-error:   #f87171;
+  --color-success: #4ade80;
 
   /* --------------------------------------------------------------------------
-     Typography
+     Typography — loaded from Google Fonts in layout.tsx, with safe fallbacks
      -------------------------------------------------------------------------- */
+  --font-family-base: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-family-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
 
-  --font-family-base: system-ui, -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --font-family-mono: ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo,
-    Consolas, 'Liberation Mono', monospace;
+  --font-size-xs:   0.75rem;
+  --font-size-sm:   0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg:   1.125rem;
+  --font-size-xl:   1.25rem;
+  --font-size-2xl:  1.5rem;
+  --font-size-3xl:  1.875rem;
+  --font-size-4xl:  2.25rem;
+  --font-size-5xl:  3rem;
+  --font-size-6xl:  3.75rem;
 
-  /* Scale (rem) */
-  --font-size-xs:   0.75rem;   /*  12px */
-  --font-size-sm:   0.875rem;  /*  14px */
-  --font-size-base: 1rem;      /*  16px */
-  --font-size-lg:   1.125rem;  /*  18px */
-  --font-size-xl:   1.25rem;   /*  20px */
-  --font-size-2xl:  1.5rem;    /*  24px */
-  --font-size-3xl:  1.875rem;  /*  30px */
-  --font-size-4xl:  2.25rem;   /*  36px */
-  --font-size-5xl:  3rem;      /*  48px */
-  --font-size-6xl:  3.75rem;   /*  60px */
-
-  /* Weight */
   --font-weight-normal:   400;
   --font-weight-medium:   500;
   --font-weight-semibold: 600;
   --font-weight-bold:     700;
 
-  /* Line height */
-  --line-height-tight:   1.15;
+  --line-height-tight:   1.1;
   --line-height-snug:    1.35;
   --line-height-normal:  1.6;
   --line-height-relaxed: 1.75;
 
-  /* --------------------------------------------------------------------------
-     Spacing — tightened rhythm to reduce empty space
-     -------------------------------------------------------------------------- */
-
+  /* Spacing */
   --space-1:  0.25rem;
   --space-2:  0.5rem;
   --space-3:  0.75rem;
@@ -88,59 +86,41 @@
   --space-16: 4rem;
   --space-20: 5rem;
 
-  --section-padding-y:   var(--space-16);
+  --section-padding-y:   clamp(4rem, 9vw, 7rem);
   --section-padding-x:   var(--space-6);
-  --container-max-width: 1080px;
-  --container-narrow:    720px;
-  --navbar-height:       4rem; /* 64px */
+  --container-max-width: 1120px;
+  --container-narrow:    760px;
+  --navbar-height:       4.5rem;
 
-  /* --------------------------------------------------------------------------
-     Border Radius
-     -------------------------------------------------------------------------- */
-
+  /* Radius */
   --radius-sm:   0.375rem;
   --radius-md:   0.625rem;
-  --radius-lg:   0.875rem;
-  --radius-xl:   1.25rem;
+  --radius-lg:   1rem;
+  --radius-xl:   1.5rem;
   --radius-full: 9999px;
 
-  /* --------------------------------------------------------------------------
-     Transitions
-     -------------------------------------------------------------------------- */
+  /* Motion */
+  --transition-fast:   160ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 260ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  --transition-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-normal: 240ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  /* --------------------------------------------------------------------------
-     Shadows — soft, elegant, light-theme
-     -------------------------------------------------------------------------- */
-
-  --shadow-xs:   0 1px 2px rgba(20, 33, 61, 0.05);
-  --shadow-sm:   0 1px 3px rgba(20, 33, 61, 0.07), 0 1px 2px rgba(20, 33, 61, 0.04);
-  --shadow-md:   0 6px 20px -8px rgba(20, 33, 61, 0.12), 0 2px 6px rgba(20, 33, 61, 0.05);
-  --shadow-lg:   0 18px 40px -16px rgba(20, 33, 61, 0.18), 0 4px 12px rgba(20, 33, 61, 0.06);
-
-  /* --------------------------------------------------------------------------
-     Accessibility
-     -------------------------------------------------------------------------- */
+  /* Shadows — glow rather than drop shadow on dark */
+  --shadow-xs:   0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-sm:   0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-md:   0 12px 30px -12px rgba(0, 0, 0, 0.7);
+  --shadow-lg:   0 30px 60px -24px rgba(0, 0, 0, 0.8);
+  --shadow-card: var(--shadow-sm);
+  --shadow-raised: var(--shadow-md);
+  --glow-accent: 0 0 0 1px rgba(244, 184, 96, 0.35), 0 10px 40px -10px rgba(244, 184, 96, 0.45);
+  --glow-signal: 0 0 24px rgba(94, 234, 212, 0.35);
 
   --min-touch-target: 44px;
 
-  /* Section heading accent */
-  --heading-accent-width: 2.5rem;
-  --heading-accent-height: 3px;
-
-  /* Hero soft background wash (very light, no heavy gradient) */
-  --hero-wash:
-    radial-gradient(900px 460px at 82% -12%, var(--color-surface-tint) 0%, transparent 60%),
-    linear-gradient(180deg, #ffffff 0%, var(--color-background-alt) 100%);
-
-  /* Footer */
+  --hero-wash: transparent;
   --footer-border: var(--color-border);
 }
 
 /* ==========================================================================
-   CSS Reset & Base Rules
+   Reset & base
    ========================================================================== */
 
 *,
@@ -153,17 +133,18 @@
 
 html {
   overflow-x: hidden;
-  color-scheme: light;
+  color-scheme: dark;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  background-color: var(--color-background);
 }
 
 body {
-  background-color: var(--color-background);
+  position: relative;
+  background-color: transparent; /* html paints the base colour so the fixed grid layers show */
   color: var(--color-text-secondary);
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
-  font-weight: var(--font-weight-normal);
   line-height: var(--line-height-normal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -171,6 +152,33 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+/* Circuit-board grid that fades out toward the bottom of the viewport */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 30%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 30%, transparent 85%);
+}
+
+/* Ambient glows */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(600px 400px at 85% 8%, rgba(165, 139, 255, 0.10), transparent 70%),
+    radial-gradient(500px 380px at 8% 30%, rgba(244, 184, 96, 0.07), transparent 70%);
 }
 
 img,
@@ -201,17 +209,29 @@ h1,
 h2,
 h3 {
   color: var(--color-text-primary);
+  font-family: var(--font-family-display);
   letter-spacing: -0.02em;
 }
 
-/* Anchored sections clear the sticky navbar */
+::selection {
+  background: rgba(244, 184, 96, 0.35);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
 section[id] {
   scroll-margin-top: calc(var(--navbar-height) + var(--space-4));
 }
 
-/* ==========================================================================
-   Shared section primitives — for one cohesive rhythm across the page
-   ========================================================================== */
+/* Sections sit on the grid background, not on flat colour blocks */
+main section {
+  background-color: transparent !important;
+  border-color: var(--color-border) !important;
+}
 
 .sectionInner {
   max-width: var(--container-max-width);
@@ -219,7 +239,7 @@ section[id] {
 }
 
 /* ==========================================================================
-   Reduced Motion
+   Reduced motion
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {

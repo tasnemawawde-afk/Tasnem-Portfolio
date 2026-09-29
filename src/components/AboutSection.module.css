@@ -20,19 +20,30 @@
 }
 
 .kicker {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
   color: var(--color-accent);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
+.kicker::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-accent));
+}
+
 .heading {
-  font-size: var(--font-size-3xl);
+  font-size: clamp(2rem, 4.5vw, 3rem);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
-  line-height: var(--line-height-snug);
-  max-width: 18ch;
+  line-height: 1.08;
+  max-width: 16ch;
 }
 
 .bio {
@@ -41,24 +52,66 @@
   line-height: var(--line-height-relaxed);
 }
 
-/* Focus areas — compact list separated by dividers, no heavy cards */
+/* Focus areas — stacked "IP blocks" wired together by a vertical bus */
 .focusList {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  border-top: 1px solid var(--color-border);
+  position: relative;
+  counter-reset: focus;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-left: var(--space-6);
+}
+
+.focusList::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: var(--space-4);
+  bottom: var(--space-4);
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--color-accent), var(--color-violet), var(--color-signal));
+  opacity: 0.6;
 }
 
 .focusItem {
-  padding: var(--space-5) 0;
-  border-bottom: 1px solid var(--color-border);
+  position: relative;
+  counter-increment: focus;
+  padding: var(--space-5) var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  transition: border-color var(--transition-normal), transform var(--transition-normal);
+}
+
+.focusItem:hover {
+  border-color: var(--color-accent-soft);
+  transform: translateX(4px);
+}
+
+/* Stub connecting each block to the bus */
+.focusItem::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--space-6));
+  top: 50%;
+  width: var(--space-6);
+  height: 1px;
+  background: var(--color-border-strong);
+}
+
+.focusItem::after {
+  content: '0' counter(focus);
+  position: absolute;
+  top: var(--space-5);
+  right: var(--space-5);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
 }
 
 .focusLabel {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
   margin-bottom: var(--space-1);
@@ -77,10 +130,6 @@
   }
 
   .focusList {
-    border-top: none;
-  }
-
-  .focusItem:first-child {
-    padding-top: 0;
+    margin-top: var(--space-12);
   }
 }

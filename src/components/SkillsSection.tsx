@@ -16,7 +16,7 @@ export function SkillsSection(props: SkillsSectionProps): React.JSX.Element {
     <section id="skills" aria-labelledby="skills-heading" className={styles.section}>
       <div className={styles.container}>
         <header className={styles.header}>
-          <p className={styles.kicker}>Capabilities</p>
+          <p className={styles.kicker}>03 · Capabilities</p>
           <h2 id="skills-heading" className={styles.heading}>Technical Skills</h2>
         </header>
         <div className={styles.grid}>

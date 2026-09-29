@@ -25,64 +25,73 @@ interface ProjectProps {
   image?: ProjectImage;
 }
 
+/**
+ * A project presented as a component datasheet:
+ * header strip with part number, title, electrical characteristics table,
+ * then the design narrative and toolchain.
+ */
 export function ProjectCard(props: ProjectProps): React.JSX.Element {
+  const partNo = `TM-${String(props.index ?? 0).padStart(2, '0')}`;
+
   return (
     <article className={styles.card}>
-      <div className={styles.aside}>
-        {props.index !== undefined && (
-          <span className={styles.index} aria-hidden="true">
-            {String(props.index).padStart(2, '0')}
-          </span>
-        )}
+      <header className={styles.strip}>
+        <span className={styles.part}>{partNo}</span>
         <span className={styles.domain}>{props.domain}</span>
-      </div>
+        <span className={styles.stamp} aria-hidden="true">DATASHEET</span>
+      </header>
 
       <div className={styles.body}>
-        <h3 className={styles.title}>{props.title}</h3>
+        <div className={styles.main}>
+          <h3 className={styles.title}>{props.title}</h3>
 
-        {props.image && (
-          <div className={styles.imageWrapper}>
-            <Image
-              src={props.image.src}
-              width={props.image.width}
-              height={props.image.height}
-              alt={props.image.alt}
-              className={styles.image}
-            />
+          {props.image && (
+            <div className={styles.imageWrapper}>
+              <Image
+                src={props.image.src}
+                width={props.image.width}
+                height={props.image.height}
+                alt={props.image.alt}
+                className={styles.image}
+              />
+            </div>
+          )}
+
+          <p className={styles.description}>{props.description}</p>
+
+          <div className={styles.tech}>
+            <span className={styles.techLabel}>Toolchain</span>
+            <ul className={styles.techList}>
+              {props.technologies.map((tech) => (
+                <li key={tech} className={styles.techItem}>{tech}</li>
+              ))}
+            </ul>
           </div>
-        )}
 
-        {props.highlights && props.highlights.length > 0 && (
-          <dl className={styles.metrics}>
-            {props.highlights.map((h) => (
-              <div key={h.label} className={styles.metric}>
-                <dt className={styles.metricLabel}>{h.label}</dt>
-                <dd className={styles.metricValue}>{h.value}</dd>
-              </div>
-            ))}
-          </dl>
-        )}
-
-        <p className={styles.description}>{props.description}</p>
-
-        <div className={styles.tech}>
-          <span className={styles.techLabel}>Tools &amp; Technologies</span>
-          <ul className={styles.techList}>
-            {props.technologies.map((tech) => (
-              <li key={tech} className={styles.techItem}>{tech}</li>
-            ))}
-          </ul>
+          {props.externalLink && (
+            <a
+              href={props.externalLink.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.link}
+            >
+              {props.externalLink.label}
+            </a>
+          )}
         </div>
 
-        {props.externalLink && (
-          <a
-            href={props.externalLink.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.link}
-          >
-            {props.externalLink.label}
-          </a>
+        {props.highlights && props.highlights.length > 0 && (
+          <aside className={styles.specs} aria-label="Key results">
+            <p className={styles.specsTitle}>Characteristics</p>
+            <dl className={styles.specTable}>
+              {props.highlights.map((h) => (
+                <div key={h.label} className={styles.specRow}>
+                  <dt className={styles.specLabel}>{h.label}</dt>
+                  <dd className={styles.specValue}>{h.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </aside>
         )}
       </div>
     </article>

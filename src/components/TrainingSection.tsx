@@ -18,7 +18,7 @@ export function TrainingSection(props: TrainingSectionProps): React.JSX.Element 
     <section id="training" aria-labelledby="training-heading" className={styles.section}>
       <div className={styles.container}>
         <header className={styles.header}>
-          <p className={styles.kicker}>Continued Learning</p>
+          <p className={styles.kicker}>05 · Continued Learning</p>
           <h2 id="training-heading" className={styles.heading}>Training &amp; Certificates</h2>
         </header>
         <ul className={styles.grid}>
