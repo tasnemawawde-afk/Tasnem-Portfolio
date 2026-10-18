@@ -20,8 +20,19 @@ export interface ConferenceStat {
   label: string;
 }
 
+/** One line in the conference log. Keep it short: name, who ran it, year, field. */
+export interface ConferenceEvent {
+  name: string;
+  organiser: string;
+  year: string;
+  field: string;
+  note?: string;
+}
+
 export interface ConferencesContent {
   featured: FeaturedConference;
+  /** Other notable conferences, newest first. Add one object per conference. */
+  events: ConferenceEvent[];
   highlight: ConferenceStat;
   summary: string;
   fields: string[];
@@ -59,6 +70,10 @@ export const conferences: ConferencesContent = {
       },
     ],
   },
+  events: [
+    // Example — copy this block for each conference:
+    // { name: "Conference name", organiser: "Company / organiser", year: "2025", field: "Hardware" },
+  ],
   highlight: { value: "50+", label: "Industry conferences since 2021" },
   summary:
     "Beyond the summit, I have been a regular at industry conferences since 2021 — in person and online — hosted by leading hardware, semiconductor and software companies, keeping close to where the field is heading.",

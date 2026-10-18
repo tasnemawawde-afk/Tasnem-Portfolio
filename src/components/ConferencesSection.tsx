@@ -55,6 +55,27 @@ export function ConferencesSection({ content }: ConferencesSectionProps): React.
           </div>
         </article>
 
+        {content.events.length > 0 && (
+          <div className={styles.log}>
+            <p className={styles.logTitle}>More conferences</p>
+            <ul className={styles.logList}>
+              {content.events.map((event) => (
+                <li key={`${event.name}-${event.year}`} className={styles.logItem}>
+                  <span className={styles.logYear}>{event.year}</span>
+                  <span className={styles.logMain}>
+                    <span className={styles.logName}>{event.name}</span>
+                    <span className={styles.logOrg}>
+                      {event.organiser}
+                      {event.note ? ` · ${event.note}` : ''}
+                    </span>
+                  </span>
+                  <span className={styles.logField}>{event.field}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         <div className={styles.more}>
           <p className={styles.highlight}>
             <span className={styles.highlightValue}>{content.highlight.value}</span>

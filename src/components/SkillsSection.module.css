@@ -51,7 +51,7 @@
   padding: var(--space-4);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  background: rgba(7, 9, 15, 0.4);
+  background: var(--color-background-alt);
 }
 
 /* Floorplan: blocks of different footprints, like a chip layout */
