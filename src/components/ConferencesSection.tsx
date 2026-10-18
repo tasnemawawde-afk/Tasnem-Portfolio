@@ -59,8 +59,8 @@ export function ConferencesSection({ content }: ConferencesSectionProps): React.
           <div className={styles.log}>
             <p className={styles.logTitle}>More conferences</p>
             <ul className={styles.logList}>
-              {content.events.map((event) => (
-                <li key={`${event.name}-${event.year}`} className={styles.logItem}>
+              {content.events.map((event, i) => (
+                <li key={`${event.year}-${i}`} className={styles.logItem}>
                   <span className={styles.logYear}>{event.year}</span>
                   <span className={styles.logMain}>
                     <span className={styles.logName}>{event.name}</span>

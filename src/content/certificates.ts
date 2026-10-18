@@ -16,6 +16,13 @@ export const certificates: Certificate[] = [
     completionYear: 2026,
   },
   {
+    id: "nvidia-dli-cuda-cpp",
+    name: "Fundamentals of Accelerated Computing with Modern CUDA C++",
+    issuingOrganisation: "NVIDIA Deep Learning Institute (DLI)",
+    completionDate: "2026",
+    completionYear: 2026,
+  },
+  {
     id: "nvidia-dli-data-science",
     name: "Accelerate Data Science Workflows with Zero Code Changes",
     issuingOrganisation: "NVIDIA Deep Learning Institute (DLI)",

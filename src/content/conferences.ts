@@ -72,7 +72,13 @@ export const conferences: ConferencesContent = {
   },
   events: [
     { year: "2026", name: "Hasoub Annual Conference – One Ecosystem", organiser: "Hasoub · Ar'ara", field: "Tech ecosystem" },
+    { year: "2026", name: "Israeli Hi-Tech Week – Launch Event", organiser: "Israeli High-Tech Association", field: "Tech ecosystem" },
+    { year: "2026", name: "Crack the Code to Your Tech Career", organiser: "NVIDIA", field: "Tech careers" },
+    { year: "2026", name: "Tech Innovation & Networking @ Annapurna Labs", organiser: "Annapurna Labs (AWS)", field: "Hardware", note: "September" },
+    { year: "2026", name: "Tech Interview 360°", organiser: "Mindspace Haifa", field: "Tech careers" },
+    { year: "2026", name: "START @Google – Physical Design Bootcamp", organiser: "Google", field: "Physical design" },
     { year: "2026", name: "From Models to Hardware: Optimizing AI at Scale", organiser: "8200 Alumni Association · Tech&Talk MATAM", field: "AI & Hardware" },
+    { year: "2026", name: "Tech Innovation & Networking @ Annapurna Labs", organiser: "Annapurna Labs (AWS)", field: "Hardware", note: "March" },
     { year: "2025", name: "HERizon AI Workshop", organiser: "Women in Tech Israel · powered by Google Cloud", field: "AI" },
     { year: "2025", name: "Starting a Year of Empowerment", organiser: "Women in Tech Israel · Tech&Talk MATAM", field: "Leadership" },
     { year: "2025", name: "AWS Experience – Northern Israel", organiser: "Amazon Web Services", field: "Cloud & AI" },
