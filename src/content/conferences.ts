@@ -71,8 +71,17 @@ export const conferences: ConferencesContent = {
     ],
   },
   events: [
-    // Example — copy this block for each conference:
-    // { name: "Conference name", organiser: "Company / organiser", year: "2025", field: "Hardware" },
+    { year: "2026", name: "Hasoub Annual Conference – One Ecosystem", organiser: "Hasoub · Ar'ara", field: "Tech ecosystem" },
+    { year: "2026", name: "From Models to Hardware: Optimizing AI at Scale", organiser: "8200 Alumni Association · Tech&Talk MATAM", field: "AI & Hardware" },
+    { year: "2025", name: "HERizon AI Workshop", organiser: "Women in Tech Israel · powered by Google Cloud", field: "AI" },
+    { year: "2025", name: "Starting a Year of Empowerment", organiser: "Women in Tech Israel · Tech&Talk MATAM", field: "Leadership" },
+    { year: "2025", name: "AWS Experience – Northern Israel", organiser: "Amazon Web Services", field: "Cloud & AI" },
+    { year: "2024", name: "Hasoub Annual Conference", organiser: "Hasoub", field: "Tech ecosystem" },
+    { year: "2024", name: "InspireHER – Women Hi-Tech Conference", organiser: "Tsofen · Haifa", field: "Women in tech" },
+    { year: "2024", name: "FV-Israel – Formal Verification Conference", organiser: "Intel · Tech&Talk MATAM", field: "Formal verification" },
+    { year: "2024", name: "Code Name: Woman", organiser: "Microsoft Israel", field: "Women in tech" },
+    { year: "2023", name: "Accelerate AI Workloads with InfiniBand", organiser: "NVIDIA · online", field: "AI infrastructure" },
+    { year: "2022", name: "Hasoub Annual Conference & Garage Grand Opening", organiser: "Hasoub · Ar'ara", field: "Tech ecosystem" },
   ],
   highlight: { value: "50+", label: "Industry conferences since 2021" },
   summary:
