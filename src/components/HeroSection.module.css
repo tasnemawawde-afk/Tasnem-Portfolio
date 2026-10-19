@@ -202,7 +202,7 @@
 }
 
 .trace {
-  stroke: rgba(168, 86, 26, 0.28);
+  stroke: rgba(30, 58, 138, 0.28);
 }
 
 .tracePulse {
@@ -325,7 +325,7 @@
   height: 7px;
   border-radius: 50%;
   background: var(--color-accent);
-  box-shadow: 0 0 10px rgba(244, 184, 96, 0.8);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.8);
 }
 
 /* Scroll cue */

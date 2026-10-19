@@ -1,53 +1,23 @@
 "use client";
 
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React from 'react';
+import { SITE_PAGES } from '../content/sections';
 import { hero } from '../content/hero';
 import styles from './NavBar.module.css';
 
-const NAV_ITEMS = [
-  { label: 'About',        href: '#about'    },
-  { label: 'Projects',     href: '#projects' },
-  { label: 'Skills',       href: '#skills'   },
-  { label: 'Background',   href: '#education' },
-  { label: 'Certificates', href: '#training' },
-  { label: 'Events',       href: '#conferences' },
-  { label: 'Contact',      href: '#contact'  },
-] as const;
-
 export function NavBar(): React.JSX.Element {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [activeSection, setActiveSection] = React.useState('');
-
-  React.useEffect(() => {
-    const sections = document.querySelectorAll<HTMLElement>('section[id]');
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      // Mark a section active when it crosses the middle band of the viewport —
-      // works for sections taller than the screen, unlike a fixed threshold.
-      { rootMargin: '-45% 0px -50% 0px', threshold: 0 }
-    );
-
-    sections.forEach((section) => observer.observe(section));
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+  const pathname = usePathname();
 
   return (
     <header className={styles.header}>
       <nav aria-label="Main navigation" className={styles.nav}>
-        <a href="#hero" className={styles.brand} aria-label="Tasnem Moura — back to top">
+        <Link href="/" className={styles.brand} aria-label="Tasnem Moura — home" onClick={() => setIsMenuOpen(false)}>
           <span className={styles.brandMark} aria-hidden="true">TM</span>
           <span>Tasnem Moura</span>
-        </a>
+        </Link>
 
         <button
           className={styles.hamburger}
@@ -66,19 +36,19 @@ export function NavBar(): React.JSX.Element {
           className={[styles.menu, isMenuOpen ? styles.open : ''].filter(Boolean).join(' ')}
         >
           <ul className={styles.navList}>
-            {NAV_ITEMS.map((item) => (
+            {SITE_PAGES.filter((item) => item.href !== '/cv').map((item) => (
               <li key={item.href}>
-                <a
+                <Link
                   href={item.href}
                   className={[
                     styles.navLink,
-                    item.href === '#' + activeSection ? styles.active : '',
+                    pathname === item.href ? styles.active : '',
                   ].filter(Boolean).join(' ')}
-                  aria-current={item.href === '#' + activeSection ? 'page' : undefined}
+                  aria-current={pathname === item.href ? 'page' : undefined}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

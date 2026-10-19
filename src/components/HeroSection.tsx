@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import styles from './HeroSection.module.css';
 
@@ -94,11 +95,11 @@ export function HeroSection(props: HeroProps): React.JSX.Element {
           <p className={styles.tagline}>{props.tagline}</p>
 
           <div className={styles.actions}>
-            <a href="#projects" className={styles.btnPrimary}>
+            <Link href="/projects" className={styles.btnPrimary}>
               View my work <span aria-hidden="true">→</span>
-            </a>
+            </Link>
             <a href={props.cvPath} download className={styles.btnSecondary}>Download CV</a>
-            <a href={props.contactHref} className={styles.btnGhost}>Get in touch</a>
+            <Link href={props.contactHref} className={styles.btnGhost}>Get in touch</Link>
           </div>
         </div>
 
@@ -130,7 +131,7 @@ export function HeroSection(props: HeroProps): React.JSX.Element {
         )}
       </div>
 
-      <a href="#about" className={styles.scrollCue} aria-label="Scroll to About">
+      <a href="#explore" className={styles.scrollCue} aria-label="Scroll to the page list">
         <span />
       </a>
     </section>

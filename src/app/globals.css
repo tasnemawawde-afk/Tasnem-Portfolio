@@ -1,6 +1,6 @@
 /* ==========================================================================
    Design Tokens — "Silicon" light theme
-   Clean white wafer background, copper traces, teal signals, a dark chip as the centrepiece.
+   Clean white wafer background, dark-blue traces, teal signals, a dark chip as the centrepiece.
    ========================================================================== */
 
 :root {
@@ -9,7 +9,7 @@
   --color-background-alt:  #f6f7fa;
   --color-surface:         #ffffff; /* card */
   --color-surface-alt:     #f3f5f9; /* inner surface / chips */
-  --color-surface-tint:    rgba(217, 119, 6, 0.06);
+  --color-surface-tint:    rgba(30, 58, 138, 0.06);
   --color-surface-raised:  #ffffff;
 
   /* Borders */
@@ -17,21 +17,21 @@
   --color-border-strong:   rgba(15, 23, 41, 0.16);
 
   /* Text */
-  --color-text-primary:   #0f1729;
-  --color-text-secondary: #3b4660;
+  --color-text-primary:   #0b1f4f;
+  --color-text-secondary: #2c3b63;
   --color-text-muted:     #6b7590;
 
-  /* Accent — copper (traces, actions) */
-  --color-accent:        #a8561a;
-  --color-accent-hover:  #8f4714;
-  --color-accent-strong: #e8a33d;
-  --color-accent-soft:   rgba(168, 86, 26, 0.22);
+  /* Accent — dark blue (traces, actions) */
+  --color-accent:        #1e3a8a;
+  --color-accent-hover:  #172554;
+  --color-accent-strong: #3b82f6;
+  --color-accent-soft:   rgba(30, 58, 138, 0.22);
   --color-accent-fg:     #ffffff;
 
-  --color-accent-tint-06: rgba(168, 86, 26, 0.06);
-  --color-accent-tint-08: rgba(168, 86, 26, 0.08);
-  --color-accent-tint-10: rgba(168, 86, 26, 0.10);
-  --color-accent-tint-16: rgba(168, 86, 26, 0.16);
+  --color-accent-tint-06: rgba(30, 58, 138, 0.06);
+  --color-accent-tint-08: rgba(30, 58, 138, 0.08);
+  --color-accent-tint-10: rgba(30, 58, 138, 0.10);
+  --color-accent-tint-16: rgba(30, 58, 138, 0.16);
 
   /* Signal — teal (waveforms, data, highlights) */
   --color-signal:       #0f9488;
@@ -39,7 +39,7 @@
   --color-violet:       #6d4dff;
 
   /* Wafer iridescence — used sparingly for display text */
-  --gradient-wafer: linear-gradient(100deg, #c2410c 0%, #d97706 28%, #db2777 55%, #7c3aed 78%, #0d9488 100%);
+  --gradient-wafer: linear-gradient(100deg, #1e3a8a 0%, #1d4ed8 45%, #2563eb 70%, #1e40af 100%);
 
   /* Semantic */
   --color-error:   #dc2626;
@@ -110,7 +110,7 @@
   --shadow-lg:   0 30px 60px -28px rgba(15, 23, 41, 0.25);
   --shadow-card: var(--shadow-sm);
   --shadow-raised: var(--shadow-md);
-  --glow-accent: 0 0 0 1px rgba(168, 86, 26, 0.25), 0 12px 30px -12px rgba(168, 86, 26, 0.45);
+  --glow-accent: 0 0 0 1px rgba(30, 58, 138, 0.25), 0 12px 30px -12px rgba(30, 58, 138, 0.45);
   --glow-signal: 0 0 10px rgba(15, 148, 136, 0.45);
 
   --min-touch-target: 44px;
@@ -178,7 +178,7 @@ body::after {
   pointer-events: none;
   background:
     radial-gradient(600px 400px at 85% 8%, rgba(124, 58, 237, 0.07), transparent 70%),
-    radial-gradient(500px 380px at 8% 30%, rgba(217, 119, 6, 0.07), transparent 70%);
+    radial-gradient(500px 380px at 8% 30%, rgba(30, 58, 138, 0.07), transparent 70%);
 }
 
 img,
@@ -214,7 +214,7 @@ h3 {
 }
 
 ::selection {
-  background: rgba(217, 119, 6, 0.22);
+  background: rgba(30, 58, 138, 0.22);
   color: var(--color-text-primary);
 }
 
@@ -255,4 +255,9 @@ main section {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Subject pages: the section follows the "Back to home" link, so trim its top gap */
+main > div + section {
+  padding-top: var(--space-8) !important;
 }

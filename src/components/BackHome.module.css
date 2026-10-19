@@ -1,0 +1,18 @@
+.wrap {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: var(--space-6) var(--section-padding-x) 0;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--min-touch-target);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent);
+}
+
+.link:hover {
+  text-decoration: underline;
+}
