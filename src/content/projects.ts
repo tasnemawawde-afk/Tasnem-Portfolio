@@ -86,4 +86,18 @@ export const projects: Project[] = [
       { value: "<10 µs", label: "Response time" },
     ],
   },
+  {
+    id: "ai-recruitment-platform",
+    title: "AI-Powered Recruitment Platform (AI Engineer Career Accelerator, in progress)",
+    description:
+      "Developing, as part of a team in the AI Engineer Career Accelerator Program, a platform for CV analysis, candidate-job matching, gap identification and tailored recommendations. Applying LLMs, agentic AI concepts, document processing, information retrieval and AI-assisted development within a team-based engineering project.",
+    technologies: [
+      "LLMs",
+      "Agentic AI",
+      "Document processing",
+      "Information retrieval",
+      "AI-assisted development",
+    ],
+    domain: "AI Engineering",
+  },
 ];
