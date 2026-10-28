@@ -76,7 +76,7 @@ const personJsonLd = {
     '@type': 'CollegeOrUniversity',
     name: 'The Hebrew University of Jerusalem',
   },
-  knowsAbout: ['VLSI', 'Microelectronics', 'Digital Design', 'Hardware Verification', 'MEMS'],
+  knowsAbout: ['VLSI', 'Microelectronics', 'Digital Design', 'Hardware Verification', 'Formal Verification', 'MEMS'],
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
