@@ -9,6 +9,13 @@ export interface Certificate {
 
 export const certificates: Certificate[] = [
   {
+    id: "femforward-leaders",
+    name: "FemForward Leaders Program – Cohort #13, Haifa",
+    issuingOrganisation: "FemForward (leadership program for women in high-tech: 16 workshops, 1:1 senior mentorship)",
+    completionDate: "2026–2027",
+    completionYear: 2026,
+  },
+  {
     id: "ai-engineer-accelerator",
     name: "AI Engineer Career Accelerator Program",
     issuingOrganisation: "Led by Mohammad Kabajah, Sr. AI/Cloud Infrastructure Architect at AWS",
