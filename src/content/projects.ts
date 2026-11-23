@@ -100,4 +100,20 @@ export const projects: Project[] = [
     ],
     domain: "AI Engineering",
   },
+  {
+    id: "mcp-python-sdk-contribution",
+    title: "Open-Source Contribution – MCP Python SDK",
+    description:
+      "Found and reported a cross-platform bug in the official Model Context Protocol Python SDK: DirectoryResource returned file listings with Windows path separators and in filesystem-dependent order, so the same folder looked different to AI clients on Windows and Linux. Reproduced the bug on Windows, built a fix that returns sorted, forward-slash paths, and added 7 unit tests for a class that previously had none, verified with pytest, ruff and pyright. The bug was independently reproduced by another contributor on macOS.",
+    technologies: ["Python", "pytest", "Model Context Protocol", "Open source", "Git & GitHub"],
+    domain: "Open Source / AI Tooling",
+    highlights: [
+      { value: "#3589", label: "Issue reported" },
+      { value: "7", label: "Unit tests added" },
+    ],
+    externalLink: {
+      href: "https://github.com/modelcontextprotocol/python-sdk/issues/3589",
+      label: "View the issue on GitHub",
+    },
+  },
 ];
